@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Game</title>
+
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id=connect-block>
+      <h3>Connect to an identity pool</h3>
+      <input type=text id=identity-pool placeholder="Identity Pool Id" />
+      <button id=connect>Connect</button>
+    </div>
+
+    <div id=subscribe-block class=hidden>
+      <h3>Subscribe to a topic</h3>
+      <input type=text id=topic value="game/" />
+      <button id=subscribe>Subscribe</button>
+    </div>
+
+    <div id=message-block class=hidden>
+      <h3>Post a message</h3>
+      <textarea id=message></textarea>
+      <button id=post>Post</button>
+    </div>
+
+    <div>
+      <h3>Messages</h3>
+      <ul id=messages></ul>
+    </div>
+
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.5.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js" type="text/javascript"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core-min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/sha256-min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/hmac-min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js" type="text/javascript"></script>
+
+    <script src="js/sigv4utils.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

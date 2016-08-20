@@ -1,0 +1,11 @@
+.hidden {
+  display: none;
+}
+
+ul li.system {
+  color: gray;
+}
+
+ul li.user {
+  color: green;
+}
