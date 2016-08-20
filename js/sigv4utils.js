@@ -22,9 +22,9 @@ SigV4Utils.getSignatureKey = function (key, dateStamp, regionName, serviceName) 
 };
 
 SigV4Utils.getSignedUrl = function(protocol, host, uri, service, region, accessKey, secretKey, sessionToken) {
-    var time = moment().utc();
-    var dateStamp = time.format('YYYYMMDD');
-    var amzdate = dateStamp + 'T' + time.format('HHmmss') + 'Z';
+    var time = new Date().toISOString().split('T');
+    var dateStamp = time[0].replace(/\-/g, '');
+    var amzdate = dateStamp + 'T' + time[1].substring(0,8).replace(/:/g, '') + 'Z';
     var algorithm = 'AWS4-HMAC-SHA256';
     var method = 'GET';
 
@@ -47,7 +47,7 @@ SigV4Utils.getSignedUrl = function(protocol, host, uri, service, region, accessK
     if (sessionToken) {
         canonicalQuerystring += '&X-Amz-Security-Token=' + encodeURIComponent(sessionToken);
     }
-    
+
     var requestUrl = protocol + '://' + host + uri + '?' + canonicalQuerystring;
     return requestUrl;
 }
