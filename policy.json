@@ -16,7 +16,7 @@
         {
             "Effect": "Allow",
             "Action": "iot:Subscribe",
-            "Resource": "arn:aws:iot:us-east-1::topicfilter/game"
+            "Resource": "arn:aws:iot:us-east-1:<accountId>:topicfilter/game/*"
         },
         {
             "Effect": "Allow",
